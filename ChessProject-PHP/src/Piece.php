@@ -79,4 +79,8 @@ abstract class Piece
         return $result;
     }
 
+    abstract function addValidSquareCheck($_xCoordinate, $_yCoordinate);
+
+    abstract function getName();
+
 }

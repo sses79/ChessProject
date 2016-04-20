@@ -6,6 +6,8 @@ namespace LogicNow;
 class Pawn extends Piece
 {
 
+    private $_name = "P";
+
     public function __construct(PieceColorEnum $pieceColorEnum)
     {
         parent::__construct($pieceColorEnum);
@@ -52,6 +54,17 @@ class Pawn extends Piece
             default:
                 throw new \InvalidArgumentException("$movementTypeEnum is not a valid movement");
         }
+    }
+
+    public function addValidSquareCheck($_xCoordinate, $_yCoordinate){
+        if($_xCoordinate === 7){
+            return false;
+        }
+        return TRUE;
+    }
+
+    public function getName() {
+        return $this->_name;
     }
 
 }
