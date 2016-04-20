@@ -13,6 +13,12 @@ class ChessBoard
     public function __construct()
     {
         $this->_pieces = array_fill(0, self::MAX_BOARD_WIDTH, array_fill(0, self::MAX_BOARD_HEIGHT, 0));
+        //$this->initialise();
+    }
+
+    public function initialise(){
+        // TODO: Implement move() method.
+        throw new \Exception("Need to implement ChessBoard.initialise()");
     }
 
     public function add(Piece $piece, $_xCoordinate, $_yCoordinate, PieceColorEnum $pieceColor)
@@ -27,7 +33,7 @@ class ChessBoard
         }
 
         //Pawn Position Check
-        if($piece->getName() === 'P'){
+        if($piece->getName() === 'WP' || $piece->getName() === 'BP'){
             if(!$piece->addValidSquareCheck($_xCoordinate, $_yCoordinate)) {
                 return FALSE;
             }
@@ -38,7 +44,7 @@ class ChessBoard
             return false;
         }
 
-        $this->_pieces[$_xCoordinate][$_yCoordinate] = $piece->getName();
+        $this->_pieces[$_xCoordinate][$_yCoordinate] = $piece;
         $piece->setXCoordinate($_xCoordinate);
         $piece->setYCoordinate($_yCoordinate);
         return true;
@@ -64,6 +70,20 @@ class ChessBoard
             }
         }
         return false;
+    }
+
+    //public function getPieces() {
+    //    return $this->_pieces;
+    //}
+
+    public function getPiece($newX, $newY) {
+        return $this->_pieces[$newX][$newY];
+    }
+
+
+    public function remove(Piece $piece) {
+        // TODO: Implement move() method.
+        throw new \Exception("Need to implement Rook.move()");
     }
 
 }

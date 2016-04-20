@@ -4,7 +4,7 @@ namespace LogicNow\Test;
 
 use LogicNow\ChessBoard;
 use LogicNow\MovementTypeEnum;
-use LogicNow\Pawn;
+use LogicNow\Piece;
 use LogicNow\Rook;
 use LogicNow\PieceColorEnum;
 
@@ -14,7 +14,7 @@ class PieceTest extends \PHPUnit_Framework_TestCase
 
     /** @var  ChessBoard */
     private $_chessBoard;
-    /** @var  Pawn */
+    /** @var  Piece */
     private $_testSubject;
 
     protected function setUp()
@@ -33,7 +33,7 @@ class PieceTest extends \PHPUnit_Framework_TestCase
 
     public function testRook_Get_Name()
     {
-        $this->assertEquals('R', $this->_testSubject->getName());
+        $this->assertEquals('BR', $this->_testSubject->getName());
     }
 
 
