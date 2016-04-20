@@ -66,7 +66,44 @@ class Pawn
 
     public function move(MovementTypeEnum $movementTypeEnum, $newX, $newY)
     {
-        throw new \Exception("Need to implement Pawn.Move()");
+        switch ($movementTypeEnum) {
+            case MovementTypeEnum::MOVE():
+                switch ($this->_pieceColorEnum) {
+                    case PieceColorEnum::WHITE():
+                        //Pawn only allow change Y
+                        if($newX == $this->getXCoordinate()){
+                            if($newY > $this->getYCoordinate()){
+                                //Only one space limited in the exercise
+                                if($newY - $this->getYCoordinate() == 1){
+                                    $this->setYCoordinate($newY);
+                                    return true;
+                                }
+                            }
+                        }
+                        return false;
+                        break;
+                    case PieceColorEnum::BLACK();
+                        if($newX == $this->getXCoordinate()){
+                            if($newY < $this->getYCoordinate()){
+                                //Only one space limited in the exercise
+                                if($this->getYCoordinate() - $newY== 1){
+                                    $this->setYCoordinate($newY);
+                                    return true;
+                                }
+                            }
+                        }
+                        return false;
+                        break;
+                    default:
+                        throw new \InvalidArgumentException("Piece color is not a valid color");
+                }
+                break;
+            case MovementTypeEnum::CAPTURE():
+                // TODO
+                break;
+            default:
+                throw new \InvalidArgumentException("$movementTypeEnum is not a valid movement");
+        }
     }
 
     public function toString()
