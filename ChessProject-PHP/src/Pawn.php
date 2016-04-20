@@ -5,6 +5,8 @@ namespace LogicNow;
 
 class Pawn extends Piece
 {
+    /** @var  string */
+    private $_shortName = 'P';
 
     public function __construct(PieceColorEnum $pieceColorEnum)
     {
@@ -46,7 +48,6 @@ class Pawn extends Piece
                 }
                 break;
             case MovementTypeEnum::CAPTURE():
-                // TODO
                 return false;
                 break;
             default:
@@ -62,16 +63,15 @@ class Pawn extends Piece
     }
 
     public function getName() {
-        switch ($this->getPieceColor()) {
-            case PieceColorEnum::WHITE():
-                return 'WP';
-                break;
-            case PieceColorEnum::BLACK();
-                return 'BP';
-                break;
-            default:
-                throw new \InvalidArgumentException("Piece color is not a valid color");
-        }
+        return $this->getPieceShortColor() . $this->_shortName;
     }
 
+    protected function currentPositionAsString()
+    {
+        $result = "Current X: " . $this->getXCoordinate() . PHP_EOL;
+        $result .= "Current Y: " . $this->getYCoordinate() . PHP_EOL;
+        $result .= "Piece Color: " . $this->getPieceShortColor(). PHP_EOL;
+        $result .= "Piece Name: " . $this->getName();
+        return $result;
+    }
 }

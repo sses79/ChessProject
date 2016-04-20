@@ -14,10 +14,13 @@ abstract class Piece
     private $_xCoordinate;
     /** @var  int */
     private $_yCoordinate;
+    /** @var  string */
+    private $_shortColor;
 
     public function __construct(PieceColorEnum $pieceColorEnum)
     {
         $this->_pieceColorEnum = $pieceColorEnum;
+        $this->setPieceShortColor($pieceColorEnum);
     }
 
     public function getChessBoard()
@@ -64,6 +67,25 @@ abstract class Piece
         $this->_pieceColorEnum = $value;
     }
 
+    public function setPieceShortColor(PieceColorEnum $value)
+    {
+        switch ($value) {
+            case PieceColorEnum::WHITE():
+                $this->_shortColor = 'W';
+                break;
+            case PieceColorEnum::BLACK();
+                $this->_shortColor = 'B';
+                break;
+            default:
+                throw new \InvalidArgumentException("Piece color is not a valid color");
+        }
+    }
+
+    public function getPieceShortColor()
+    {
+        return $this->_shortColor;
+    }
+
     abstract function move(MovementTypeEnum $movementTypeEnum, $newX, $newY);
 
     public function toString()
@@ -75,7 +97,7 @@ abstract class Piece
     {
         $result = "Current X: " . $this->_xCoordinate . PHP_EOL;
         $result .= "Current Y: " . $this->_yCoordinate . PHP_EOL;
-        $result .= "Piece Color: " . $this->_pieceColorEnum;
+        $result .= "Piece Color: " . $this->_shortColor;
         return $result;
     }
 

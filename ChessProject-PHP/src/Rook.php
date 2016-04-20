@@ -6,6 +6,8 @@ namespace LogicNow;
 
 class Rook extends Piece
 {
+    /** @var  string */
+    private $_shortName = 'R';
 
     public function __construct(PieceColorEnum $pieceColorEnum)
     {
@@ -24,16 +26,7 @@ class Rook extends Piece
     }
 
     public function getName() {
-        switch ($this->getPieceColor()) {
-            case PieceColorEnum::WHITE():
-                return 'WR';
-                break;
-            case PieceColorEnum::BLACK();
-                return 'BR';
-                break;
-            default:
-                throw new \InvalidArgumentException("Piece color is not a valid color");
-        }
+        return $this->getPieceShortColor() . $this->_shortName;
     }
 
 }

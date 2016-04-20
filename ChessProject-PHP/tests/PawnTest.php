@@ -59,4 +59,11 @@ class PawnTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(2, $this->_testSubject->getYCoordinate());
     }
 
+    public function testChessBoard_currentPositionAsString()
+    {
+        $this->_chessBoard->add($this->_testSubject, 6, 3, PieceColorEnum::BLACK());
+        printf("%s",$this->_testSubject->toString());
+        $this->assertEquals(6, $this->_testSubject->getXCoordinate());
+    }
+
 }

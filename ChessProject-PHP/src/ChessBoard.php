@@ -12,7 +12,7 @@ class ChessBoard
 
     public function __construct()
     {
-        $this->_pieces = array_fill(0, self::MAX_BOARD_WIDTH, array_fill(0, self::MAX_BOARD_HEIGHT, 0));
+        $this->_pieces = array_fill(0, self::MAX_BOARD_WIDTH, array_fill(0, self::MAX_BOARD_HEIGHT, null));
         //$this->initialise();
     }
 
@@ -21,7 +21,7 @@ class ChessBoard
         throw new \Exception("Need to implement ChessBoard.initialise()");
     }
 
-    public function add(Piece $piece, $_xCoordinate, $_yCoordinate, PieceColorEnum $pieceColor)
+    public function add(Piece $piece, $_xCoordinate, $_yCoordinate)
     {
 
         $piece->setXCoordinate(-1);
@@ -65,16 +65,16 @@ class ChessBoard
     {
         $current_piece = $this->_pieces[$_xCoordinate][$_yCoordinate];
         if($this->isLegalBoardPosition($_xCoordinate, $_yCoordinate)){
-            if ($current_piece === 0) {
+            if (is_null($current_piece)) {
                 return true;
             }
         }
         return false;
     }
 
-    //public function getPieces() {
-    //    return $this->_pieces;
-    //}
+    public function getPieces() {
+        return $this->_pieces;
+    }
 
     public function getPiece($newX, $newY) {
         return $this->_pieces[$newX][$newY];
@@ -84,6 +84,16 @@ class ChessBoard
     public function remove(Piece $piece) {
         // TODO: Implement move() method.
         throw new \Exception("Need to implement Rook.move()");
+    }
+
+    public function movePiece(Piece $piece, $newX, $newY) {
+        $this->add($piece, $newX, $newY);
+        $piece->setXCoordinate($newX);
+        $piece->setYCoordinate($newY);
+    }
+
+    public function removePiece($newX, $newY) {
+        // TODO
     }
 
 }
