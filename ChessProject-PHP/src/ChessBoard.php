@@ -20,9 +20,19 @@ class ChessBoard
         throw new \ErrorException("Need to implement ChessBoard.add() ");
     }
 
-    /** @return: boolean */
+    /**
+     * @param $_xCoordinate
+     * @param $_yCoordinate
+     * @return bool
+     */
     public function isLegalBoardPosition($_xCoordinate, $_yCoordinate)
     {
-        throw new \ErrorException("Need to implement ChessBoard.isLegalBoardPosition()");
+        if ($_xCoordinate > self::MAX_BOARD_WIDTH || $_xCoordinate < 0 ||
+            $_yCoordinate > self::MAX_BOARD_HEIGHT || $_yCoordinate < 0
+        ) {
+            return false;
+        }
+
+        return true;
     }
 }
