@@ -24,7 +24,7 @@ class Pawn extends Piece
                             if($newY > $this->getYCoordinate()){
                                 //Only one space limited in the exercise
                                 if($newY - $this->getYCoordinate() == 1){
-                                    $this->setYCoordinate($newY);
+                                    //$this->setYCoordinate($newY);
                                     return true;
                                 }
                             }
@@ -36,7 +36,7 @@ class Pawn extends Piece
                             if($newY < $this->getYCoordinate()){
                                 //Only one space limited in the exercise
                                 if($this->getYCoordinate() - $newY== 1){
-                                    $this->setYCoordinate($newY);
+                                    //$this->setYCoordinate($newY);
                                     return true;
                                 }
                             }

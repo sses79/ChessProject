@@ -23,6 +23,9 @@ class PieceTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * Test Add Class Rook which extends Class Piece
+     */
     public function testChessBoard_Add_Sets_XCoordinate_YCoordinate()
     {
         $this->_chessBoard->add($this->_testSubject, 7, 0);
@@ -30,6 +33,9 @@ class PieceTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0, $this->_testSubject->getYCoordinate());
     }
 
+    /**
+     * Test abstract function getName() implement in Class Rook
+     */
     public function testRook_Get_Name()
     {
         $this->assertEquals('BR', $this->_testSubject->getName());
