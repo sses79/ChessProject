@@ -3,7 +3,6 @@
 namespace LogicNow\Test;
 
 use LogicNow\ChessBoard;
-use LogicNow\MovementTypeEnum;
 use LogicNow\Piece;
 use LogicNow\Rook;
 use LogicNow\PieceColorEnum;
@@ -26,7 +25,7 @@ class PieceTest extends \PHPUnit_Framework_TestCase
 
     public function testChessBoard_Add_Sets_XCoordinate_YCoordinate()
     {
-        $this->_chessBoard->add($this->_testSubject, 7, 0, PieceColorEnum::BLACK());
+        $this->_chessBoard->add($this->_testSubject, 7, 0);
         $this->assertEquals(7, $this->_testSubject->getXCoordinate());
         $this->assertEquals(0, $this->_testSubject->getYCoordinate());
     }

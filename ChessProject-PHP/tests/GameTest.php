@@ -37,9 +37,6 @@ class GameTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($test);
     }
 
-    /**
-     *
-     */
     public function testValidMove_Piece_Move_IllegalCoordinates_Left_DoesNotMove()
     {
         $firstPawn = new Pawn(PieceColorEnum::BLACK());
@@ -48,9 +45,6 @@ class GameTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($test);
     }
 
-    /**
-     *
-     */
     public function testValidMove_Piece_Move_OccupiedBySameColor()
     {
         $firstPawn = new Pawn(PieceColorEnum::BLACK());
@@ -61,9 +55,6 @@ class GameTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($test);
     }
 
-    /**
-     *
-     */
     public function testMakeMove_Piece_Move_OccupiedByDifferentColor()
     {
         $firstPawn = new Pawn(PieceColorEnum::BLACK());
